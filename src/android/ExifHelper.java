@@ -20,7 +20,7 @@ package org.apache.cordova.camera;
 
 import java.io.IOException;
 
-import android.media.ExifInterface;
+import androidx.exifinterface.media.ExifInterface;
 
 public class ExifHelper {
     private String aperture = null;
@@ -70,7 +70,7 @@ public class ExifHelper {
      * Reads all the EXIF data from the input file.
      */
     public void readExifData() {
-        this.aperture = inFile.getAttribute(ExifInterface.TAG_APERTURE);
+        this.aperture = inFile.getAttribute(ExifInterface.TAG_APERTURE_VALUE);
         this.datetime = inFile.getAttribute(ExifInterface.TAG_DATETIME);
         this.exposureTime = inFile.getAttribute(ExifInterface.TAG_EXPOSURE_TIME);
         this.flash = inFile.getAttribute(ExifInterface.TAG_FLASH);
@@ -84,7 +84,7 @@ public class ExifHelper {
         this.gpsLongitudeRef = inFile.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF);
         this.gpsProcessingMethod = inFile.getAttribute(ExifInterface.TAG_GPS_PROCESSING_METHOD);
         this.gpsTimestamp = inFile.getAttribute(ExifInterface.TAG_GPS_TIMESTAMP);
-        this.iso = inFile.getAttribute(ExifInterface.TAG_ISO);
+        this.iso = inFile.getAttribute(ExifInterface.TAG_ISO_SPEED);
         this.make = inFile.getAttribute(ExifInterface.TAG_MAKE);
         this.model = inFile.getAttribute(ExifInterface.TAG_MODEL);
         this.orientation = inFile.getAttribute(ExifInterface.TAG_ORIENTATION);
@@ -103,7 +103,7 @@ public class ExifHelper {
         }
 
         if (this.aperture != null) {
-            this.outFile.setAttribute(ExifInterface.TAG_APERTURE, this.aperture);
+            this.outFile.setAttribute(ExifInterface.TAG_APERTURE_VALUE, this.aperture);
         }
         if (this.datetime != null) {
             this.outFile.setAttribute(ExifInterface.TAG_DATETIME, this.datetime);
@@ -145,7 +145,7 @@ public class ExifHelper {
             this.outFile.setAttribute(ExifInterface.TAG_GPS_TIMESTAMP, this.gpsTimestamp);
         }
         if (this.iso != null) {
-            this.outFile.setAttribute(ExifInterface.TAG_ISO, this.iso);
+            this.outFile.setAttribute(ExifInterface.TAG_ISO_SPEED, this.iso);
         }
         if (this.make != null) {
             this.outFile.setAttribute(ExifInterface.TAG_MAKE, this.make);
